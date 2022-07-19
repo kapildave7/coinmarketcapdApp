@@ -5,29 +5,18 @@ import { useRouter } from "next/router";
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
-  const [open, setOpen] = useState("");
+  const [header, setHeader] = useState("");
   const { theme, setTheme } = useTheme();
   const router = useRouter();
   useEffect(() => {
     setMounted(true), [];
   });
 
-  // const setClass = async() => {
-  //   if (router.route != "/graph") {
-  //     setOpen("border-b");
-  //   } else {
-  //     setOpen("");
-  //   }
-  // };
-
   if (!mounted) return null;
   return (
     <nav className="flex mb-5 ">
-      {/* 11/12 */}
-      {/* {router.route != "/graph" ? setOpen("border-b") : ""} */}
-      {/* {setClass} */}
       <div
-        className={`w-full drop-shadow-lg  flex justify-center pt-4  border-b dark:border-gray-800  border-zinc-300  items-center`}
+        className={`w-full drop-shadow-lg mr-10 ml-10 flex justify-center pt-4  border-b dark:border-gray-800  border-zinc-300  items-center`}
       >
         <div className="hidden md:flex">
           {router.route === "/graph" ? (
@@ -52,34 +41,70 @@ export default function Navbar() {
             </div>
           ) : (
             <div className="flex">
-              <div className="text-sm font-medium leading-10 border-b-2 border-emerald-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 inline-block mr-1 mb-0"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+              {router.route === "/" ? (
+                <div
+                  className={`text-sm font-medium leading-10 border-b-2 border-emerald-500`}
                 >
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                </svg>
-                <Link href="/">Home</Link>
-              </div>
-              <div className="text-sm font-medium ml-5  leading-10 ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 inline-block mr-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
-                  />
-                </svg>
-                <Link href="/wallet">Wallet</Link>
-              </div>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 inline-block mr-1 mb-0"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                  </svg>
+                  <Link href="/">Home</Link>
+                </div>
+              ) : (
+                <div className={`text-sm font-medium leading-10`}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 inline-block mr-1 mb-0"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                  </svg>
+                  <Link href="/">Home</Link>
+                </div>
+              )}
+              {router.route === "/wallet" ? (
+                <div className="text-sm font-medium ml-5 border-b-2 border-emerald-500 leading-10 ">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 inline-block mr-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                    />
+                  </svg>
+                  <Link href="/wallet">Wallet</Link>
+                </div>
+              ) : (
+                <div className="text-sm font-medium ml-5 leading-10 ">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4 inline-block mr-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                    />
+                  </svg>
+                  <Link href="/wallet">Wallet</Link>
+                </div>
+              )}
             </div>
           )}
         </div>
