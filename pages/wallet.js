@@ -86,7 +86,7 @@ const Wallet = () => {
     return (
       <div className="inline-flex justify-center w-full">
         <div className="bg-white dark:bg-neutral-800 rounded-lg w-3/6 px-6 mt-10 py-8 ring-1 ring-slate-900/5 shadow-xl">
-          <div className="flex justify-between border-solid border-b pb-2.5 border-stone-500">
+          <div className="flex justify-between border-solid border-b pb-2.5 dark:border-gray-600 border-zinc-300">
             <span className="inline-flex items-center justify-center rounded-md ">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

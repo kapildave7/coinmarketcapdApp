@@ -5,18 +5,30 @@ import { useRouter } from "next/router";
 
 export default function Navbar() {
   const [mounted, setMounted] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState("");
   const { theme, setTheme } = useTheme();
   const router = useRouter();
   useEffect(() => {
     setMounted(true), [];
   });
 
+  // const setClass = async() => {
+  //   if (router.route != "/graph") {
+  //     setOpen("border-b");
+  //   } else {
+  //     setOpen("");
+  //   }
+  // };
+
   if (!mounted) return null;
   return (
     <nav className="flex mb-5 ">
       {/* 11/12 */}
-      <div className="w-full   flex justify-center pt-4  items-center">
+      {/* {router.route != "/graph" ? setOpen("border-b") : ""} */}
+      {/* {setClass} */}
+      <div
+        className={`w-full drop-shadow-lg  flex justify-center pt-4  border-b dark:border-gray-800  border-zinc-300  items-center`}
+      >
         <div className="hidden md:flex">
           {router.route === "/graph" ? (
             <div className="flex pl-4 absolute left-0 w-full">

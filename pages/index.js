@@ -3,7 +3,6 @@ import axios from "axios";
 
 import Link from "next/link";
 
-
 export default function Home() {
   const [coins, setCoins] = useState([]);
   const [params, setParams] = useState({
@@ -106,6 +105,8 @@ export default function Home() {
   };
   useEffect(() => {
     getData();
+
+    console.log(localStorage.getItem("theme"));
   }, []);
 
   return (
@@ -114,7 +115,7 @@ export default function Home() {
         <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
           <div className="overflow-hidden">
             <table className="w-11/12">
-              <thead className="border-b border-zinc-300">
+              <thead className="border-b dark:border-gray-800  border-zinc-300">
                 <tr>
                   <th
                     scope="col"
@@ -177,7 +178,10 @@ export default function Home() {
               <tbody>
                 {coins.map((data, index) => {
                   return (
-                    <tr className="border-b  border-zinc-300" key={data.id}>
+                    <tr
+                      className="border-b dark:border-gray-800  border-zinc-300"
+                      key={data.id}
+                    >
                       <td className="px-6 py-4  text-sm font-medium ">
                         {index + 1 + (params.page * 10 - 10)}
                       </td>
