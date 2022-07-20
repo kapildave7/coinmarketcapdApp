@@ -15,6 +15,7 @@ export default function Navbar() {
   if (!mounted) return null;
   return (
     <nav className="flex mb-5 ">
+      
       <div
         className={`w-full drop-shadow-lg mr-10 ml-10 flex justify-center pt-4  border-b dark:border-gray-800  border-zinc-300  items-center`}
       >
